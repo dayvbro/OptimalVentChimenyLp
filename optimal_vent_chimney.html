@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Optimal Vent & Chimney</title>
+<style>
+body { margin:0; font-family:Arial; background:#f4f4f4;}
+header {display:flex;justify-content:space-between;align-items:center;background:white;padding:15px 30px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+header img {height:65px;}
+nav a {margin-left:20px;text-decoration:none;color:#333;font-weight:bold;cursor:pointer;}
+.hero {background:#1f2a44;color:white;text-align:center;padding:60px 20px;}
+.container {max-width:1000px;margin:auto;padding:40px 20px;}
+.services {display:flex;gap:20px;flex-wrap:wrap;}
+.card {background:white;padding:20px;flex:1;min-width:250px;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+input, textarea {width:100%;padding:10px;margin:10px 0;border-radius:5px;border:1px solid #ccc;}
+button {background:#1f2a44;color:white;padding:10px 20px;border:none;border-radius:5px;cursor:pointer;}
+footer {background:#1f2a44;color:white;text-align:center;padding:20px;}
+.hidden {display:none;}
+</style>
+</head>
+<body>
+
+<header>
+<img src="logo.png" alt="Logo">
+<nav>
+<a onclick="showPage('home')">Home</a>
+<a onclick="showPage('about')">About</a>
+<a onclick="showPage('contact')">Contact</a>
+</nav>
+</header>
+
+<div id="home">
+<div class="hero">
+<h1>Optimal Vent & Chimney</h1>
+<p>Dryer Vent Cleaning & Chimney Sweep Experts</p>
+</div>
+
+<div class="container">
+<h2>Our Services</h2>
+<div class="services">
+<div class="card">
+<h3>Dryer Vent Cleaning</h3>
+<p>Remove lint buildup, improve airflow, and reduce fire risks.</p>
+</div>
+<div class="card">
+<h3>Chimney Sweep</h3>
+<p>We clean soot and blockages to keep your chimney safe.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="about" class="hidden">
+<div class="hero"><h1>About Us</h1></div>
+<div class="container">
+<h3>Connor</h3>
+<p>Expert in chimney sweeping and ventilation safety.</p>
+<h3>Dayveon</h3>
+<p>Specializes in dryer vent cleaning and airflow optimization.</p>
+</div>
+</div>
+
+<div id="contact" class="hidden">
+<div class="hero"><h1>Contact Us</h1></div>
+<div class="container">
+<p>Email: Optimalvent&chimney@gmail.com</p>
+<p>Phone: 214-436-2504</p>
+<form>
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea rows="5" placeholder="Your Message" required></textarea>
+<button type="submit">Send</button>
+</form>
+</div>
+</div>
+
+<footer>
+<p>© 2026 Optimal Vent & Chimney</p>
+</footer>
+
+<script>
+function showPage(page){
+document.getElementById('home').classList.add('hidden');
+document.getElementById('about').classList.add('hidden');
+document.getElementById('contact').classList.add('hidden');
+document.getElementById(page).classList.remove('hidden');
+}
+</script>
+
+</body>
+</html>
