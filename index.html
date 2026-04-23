@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OptimalVent&Chimney</title>
+<title>Optimal Vent & Chimney</title>
 
 <style>
 body {
     margin:0;
     font-family:Arial, sans-serif;
-    background:#f5f5f0;
+    background:#f7f7f7;
     line-height:1.6;
 }
 
@@ -19,78 +19,121 @@ header {
     justify-content:space-between;
     align-items:center;
     background:#0b3d2e;
-    padding:15px 40px;
+    padding:20px 60px;
+    position:sticky;
+    top:0;
 }
 
-/* LOGO UPDATED */
 header img {
-    height:120px;   /* bigger logo */
-    width:auto;
-    background:transparent;
-    object-fit:contain;
-    display:block;
+    height:90px;
 }
-    
+
 nav a {
-    margin-left:25px;
+    margin-left:30px;
     text-decoration:none;
     color:#d4af37;
     font-weight:bold;
-    transition:0.3s;
+    font-size:16px;
+    cursor:pointer;
 }
 
 nav a:hover {
     color:white;
 }
 
-/* HERO UPDATED (removed image background) */
+/* HERO */
 .hero {
-    background:#0b3d2e; /* solid clean professional background */
-    color:#d4af37;
+    background:#0b3d2e;
+    color:white;
     text-align:center;
-    padding:100px 20px;
+    padding:140px 20px;
 }
 
 .hero h1 {
-    font-size:42px;
-    margin-bottom:10px;
+    font-size:50px;
+    margin-bottom:15px;
 }
 
 .hero p {
-    font-size:18px;
+    font-size:20px;
+    margin-bottom:25px;
+}
+
+.hero button {
+    background:#d4af37;
+    border:none;
+    padding:15px 35px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.hero button:hover {
+    background:#b8962e;
+}
+
+/* SECTIONS */
+.section {
+    padding:80px 20px;
 }
 
 .container {
     max-width:1100px;
     margin:auto;
-    padding:50px 20px;
 }
 
 h2 {
     text-align:center;
-    margin-bottom:30px;
+    margin-bottom:50px;
     color:#0b3d2e;
+    font-size:32px;
 }
 
+/* SERVICES */
 .services {
     display:flex;
-    gap:25px;
+    gap:30px;
     flex-wrap:wrap;
     justify-content:center;
 }
 
 .card {
     background:white;
-    padding:25px;
-    width:300px;
+    padding:30px;
+    width:320px;
     border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
     text-align:center;
     border-top:6px solid #d4af37;
+    transition:0.3s;
+}
+
+.card:hover {
+    transform:translateY(-8px);
 }
 
 .card h3 {
     color:#0b3d2e;
+}
+
+/* ALT BACKGROUND */
+.alt {
+    background:#0b3d2e;
+    color:white;
+}
+
+.alt h2 {
+    color:#d4af37;
+}
+
+/* CONTACT */
+.contact-box {
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    max-width:500px;
+    margin:auto;
 }
 
 input, textarea {
@@ -115,21 +158,11 @@ button:hover {
     background:#b8962e;
 }
 
-.contact-box {
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    max-width:500px;
-    margin:auto;
-}
-
 footer {
     background:#0b3d2e;
     color:#d4af37;
     text-align:center;
-    padding:20px;
-    margin-top:40px;
+    padding:25px;
 }
 
 .hidden {display:none;}
@@ -149,54 +182,68 @@ footer {
 
 <!-- HOME -->
 <div id="home">
+
 <div class="hero">
-<h1>Optimal Vent & Chimney</h1>
-<p>Dryer Vent Cleaning & Chimney Sweep Experts</p>
+<h1>Professional Vent & Chimney Services</h1>
+<p>Keeping Homes Safe, Clean, and Efficient</p>
+<button onclick="showPage('contact')">Get a Free Quote</button>
 </div>
 
+<div class="section">
 <div class="container">
 <h2>Our Services</h2>
+
 <div class="services">
 
 <div class="card">
-<h3>Dryer Vent Cleaning and Chimney Sweeps</h3>
-<p>We remove lint buildup, improve airflow, and reduce fire hazards for commercial and residential areas.</p>
+<h3>Dryer Vent Cleaning</h3>
+<p>We remove lint buildup, improve airflow, and reduce fire hazards for homes and businesses.</p>
 </div>
 
 <div class="card">
-<h3>Cover replacements and repairs / Chimney cap installations for fireplaces</h3>
-<p>We provide professional chimney cap installations for fireplaces, along with reliable cover replacements and repair services designed to protect your chimney from weather damage, block debris and pests, and maintain safe, efficient airflow for long-term performance and peace of mind..</p>
+<h3>Chimney Cap Installation</h3>
+<p>Protect your chimney from weather, animals, and debris with durable, professional cap installations.</p>
 </div>
 
 <div class="card">
 <h3>Safety Inspections</h3>
-<p>Ensure your home systems meet safety standards and perform properly.</p>
+<p>Ensure your system is operating safely and efficiently with thorough inspections.</p>
 </div>
 
 </div>
 </div>
+</div>
+
+<div class="section alt">
+<div class="container">
+<h2>Why Choose Us?</h2>
+<p style="text-align:center; max-width:700px; margin:auto;">
+We deliver reliable, high-quality vent and chimney services using professional tools and proven techniques. Your safety and satisfaction come first.
+</p>
+</div>
+</div>
+
 </div>
 
 <!-- ABOUT -->
 <div id="about" class="hidden">
-<div class="hero">
-<h1>About Us</h1>
-</div>
-
+<div class="section">
 <div class="container">
+<h2>About Us</h2>
 <p style="text-align:center; max-width:800px; margin:auto;">
-At Optimal Vent & Chimney LLC, we provide reliable, high-quality vent and chimney cleaning services that enhance safety and efficiency. Our team uses professional equipment and proven techniques to ensure every job is done right.
+At Optimal Vent & Chimney LLC, we specialize in keeping your home safe through expert vent cleaning and chimney care. Our team is dedicated to quality work, honest service, and long-term customer trust.
 </p>
+</div>
 </div>
 </div>
 
 <!-- CONTACT -->
 <div id="contact" class="hidden">
-<div class="hero">
-<h1>Contact Us</h1>
-</div>
-
+<div class="section">
 <div class="container">
+
+<h2>Contact Us</h2>
+
 <div class="contact-box">
 <p><strong>Email:</strong> Optimalvent&chimney@gmail.com</p>
 <p><strong>Phone:</strong> 214-436-2504</p>
@@ -207,6 +254,8 @@ At Optimal Vent & Chimney LLC, we provide reliable, high-quality vent and chimne
 <textarea name="message" placeholder="Your Message" required></textarea>
 <button type="submit">Send Message</button>
 </form>
+</div>
+
 </div>
 </div>
 </div>
@@ -221,6 +270,7 @@ document.getElementById('home').classList.add('hidden');
 document.getElementById('about').classList.add('hidden');
 document.getElementById('contact').classList.add('hidden');
 document.getElementById(page).classList.remove('hidden');
+window.scrollTo(0,0);
 }
 </script>
 
