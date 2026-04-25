@@ -41,49 +41,41 @@ nav a {
     color:#d4af37;
     text-decoration:none;
     font-weight:bold;
-    cursor:pointer;
 }
 
 nav a:hover {
     color:white;
 }
 
-/* HERO */
+/* HERO IMAGE SHOWCASE */
 .hero {
-    height:100vh;
-    background:linear-gradient(rgba(11,61,46,0.85), rgba(11,61,46,0.85)),
-    url('https://images.unsplash.com/photo-1581578731548-c64695cc6952');
-    background-size:cover;
-    background-position:center;
+    padding-top:120px;
+    background:#0b3d2e;
     color:white;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
     text-align:center;
-    padding:20px;
 }
 
 .hero h1 {
-    font-size:52px;
+    font-size:48px;
+    margin-bottom:10px;
 }
 
 .hero p {
     font-size:20px;
-    margin:20px 0;
+    margin-bottom:30px;
 }
 
-.hero button {
-    padding:15px 35px;
-    background:#d4af37;
-    border:none;
-    font-weight:bold;
-    cursor:pointer;
-    border-radius:5px;
+/* IMAGE GRID */
+.hero-images {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
 }
 
-.hero button:hover {
-    background:#b8962e;
+.hero-images img {
+    width:100%;
+    height:400px;
+    object-fit:cover;
 }
 
 /* SECTION */
@@ -100,7 +92,6 @@ h2 {
     text-align:center;
     margin-bottom:50px;
     color:#0b3d2e;
-    font-size:32px;
 }
 
 /* SERVICES */
@@ -122,11 +113,7 @@ h2 {
 }
 
 .card:hover {
-    transform:translateY(-10px) scale(1.02);
-}
-
-.card h3 {
-    color:#0b3d2e;
+    transform:translateY(-10px);
 }
 
 /* WHY */
@@ -208,8 +195,12 @@ footer {
 <!-- HERO -->
 <section class="hero" id="home">
 <h1>Vent & Chimney Services</h1>
-<p>Cleaner Air. Safer Homes. Better Performance.</p>
-<button onclick="document.getElementById('contact').scrollIntoView()">Get a Free Quote</button>
+<p>Real Work. Real Results. Cleaner & Safer Homes.</p>
+
+<div class="hero-images">
+<img src="images/vent1.jpg" alt="Vent Work 1">
+<img src="images/vent2.jpg" alt="Vent Work 2">
+</div>
 </section>
 
 <!-- SERVICES -->
@@ -221,32 +212,32 @@ footer {
 
 <div class="card">
 <h3>Dryer Vent Cleaning</h3>
-<p>Remove dangerous lint buildup, improve airflow, and reduce the risk of dryer fires while increasing efficiency.</p>
+<p>Remove dangerous lint buildup and prevent house fires while improving airflow.</p>
 </div>
 
 <div class="card">
 <h3>Chimney Sweep & Cleaning</h3>
-<p>Eliminate soot, creosote, and blockages to keep your chimney operating safely and efficiently.</p>
+<p>Eliminate soot and creosote for a safer, more efficient chimney.</p>
 </div>
 
 <div class="card">
 <h3>Chimney Cap Installation</h3>
-<p>Install durable chimney caps to protect against rain, animals, and debris entering your system.</p>
+<p>Protect your home from animals, rain, and debris with secure caps.</p>
 </div>
 
 <div class="card">
-<h3>Chimney Repair & Cover Replacement</h3>
-<p>Restore damaged chimney structures and replace worn covers to maintain safety and performance.</p>
+<h3>Chimney Repair & Covers</h3>
+<p>Fix damaged systems and replace worn covers to extend lifespan.</p>
 </div>
 
 <div class="card">
-<h3>Dryer Vent Repair & Rerouting</h3>
-<p>Fix crushed or poorly installed vent lines and optimize routing for maximum airflow and safety.</p>
+<h3>Vent Repair & Rerouting</h3>
+<p>Correct poor installations and improve airflow efficiency.</p>
 </div>
 
 <div class="card">
-<h3>Full Safety Inspections</h3>
-<p>Comprehensive inspections to identify hazards, ensure compliance, and keep your system running properly.</p>
+<h3>Safety Inspections</h3>
+<p>Identify hazards early and keep your home protected.</p>
 </div>
 
 </div>
@@ -259,10 +250,10 @@ footer {
 <h2>Why Choose Us</h2>
 
 <div class="why">
-<div>✔ Reliable & On-Time Service</div>
-<div>✔ Affordable & Transparent Pricing</div>
-<div>✔ Professional Equipment</div>
-<div>✔ 100% Customer Satisfaction</div>
+<div>✔ Real Before & After Work</div>
+<div>✔ Fast & Reliable Service</div>
+<div>✔ Honest Pricing</div>
+<div>✔ Professional Results</div>
 </div>
 
 </div>
@@ -271,8 +262,7 @@ footer {
 <!-- CTA -->
 <section class="cta fade">
 <h2>Need Service Today?</h2>
-<p>Contact us now and get a fast, free quote.</p>
-<button onclick="document.getElementById('contact').scrollIntoView()">Contact Us</button>
+<p>Get a fast, free quote now.</p>
 </section>
 
 <!-- CONTACT -->
@@ -301,12 +291,10 @@ footer {
 </footer>
 
 <script>
-// HEADER SCROLL EFFECT
 window.addEventListener("scroll", function() {
     document.getElementById("header").classList.toggle("scrolled", window.scrollY > 50);
 });
 
-// FADE-IN ANIMATION
 const faders = document.querySelectorAll(".fade");
 
 window.addEventListener("scroll", () => {
