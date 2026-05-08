@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <title>Optimal Vent & Chimney</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -21,7 +22,7 @@ body{
 font-family:'Poppins',sans-serif;
 background:#ffffff;
 color:#333;
-line-height:1.6;
+overflow-x:hidden;
 }
 
 /* HEADER */
@@ -36,22 +37,57 @@ justify-content:space-between;
 align-items:center;
 padding:18px 70px;
 background:rgba(255,255,255,0.96);
-backdrop-filter:blur(10px);
-box-shadow:0 2px 15px rgba(0,0,0,0.08);
+backdrop-filter:blur(12px);
+box-shadow:0 2px 20px rgba(0,0,0,0.08);
 z-index:1000;
 }
 
-header img{
-height:95px;
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo img{
+height:85px;
+width:auto;
+object-fit:contain;
+}
+
+.logo-text{
+font-size:24px;
+font-weight:700;
+color:#0b3d2e;
+}
+
+nav{
+display:flex;
+align-items:center;
 }
 
 nav a{
-margin-left:35px;
 text-decoration:none;
-font-weight:600;
+margin-left:35px;
 color:#0b3d2e;
-transition:.3s;
+font-weight:600;
 font-size:16px;
+transition:.3s;
+position:relative;
+}
+
+nav a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-5px;
+width:0%;
+height:2px;
+background:#d4af37;
+transition:.3s;
+}
+
+nav a:hover::after{
+width:100%;
 }
 
 nav a:hover{
@@ -61,35 +97,77 @@ color:#d4af37;
 /* HERO */
 
 .hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
-url('images/IMG_0850.jpeg');
-background-size:cover;
-background-position:center;
+position:relative;
+width:100%;
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:20px;
+padding:180px 20px 120px;
+overflow:hidden;
+}
+
+/* HERO IMAGE */
+
+.hero::before{
+content:'';
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+url('images/IMG_8257.jpeg');
+background-size:cover;
+background-position:center center;
+background-repeat:no-repeat;
+transform:scale(1.05);
+z-index:-2;
+}
+
+/* DARK OVERLAY */
+
+.hero::after{
+content:'';
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(
+to bottom,
+rgba(0,0,0,0.2),
+rgba(0,0,0,0.5)
+);
+z-index:-1;
 }
 
 .hero-content{
-max-width:850px;
+max-width:950px;
 }
 
 .hero h1{
-font-size:68px;
+font-size:clamp(52px,8vw,95px);
+font-weight:800;
 color:white;
-margin-bottom:20px;
-font-weight:700;
+line-height:1.1;
+margin-bottom:30px;
+text-shadow:0 5px 25px rgba(0,0,0,0.35);
 }
 
 .hero p{
-font-size:24px;
+font-size:clamp(18px,2vw,28px);
 color:#f2f2f2;
-margin-bottom:35px;
+line-height:1.7;
+max-width:850px;
+margin:auto;
+margin-bottom:45px;
+font-weight:400;
 }
+
+/* BUTTONS */
 
 .hero-buttons{
 display:flex;
@@ -99,25 +177,24 @@ flex-wrap:wrap;
 }
 
 .btn{
-padding:15px 35px;
-border:none;
-border-radius:8px;
+padding:17px 38px;
+border-radius:10px;
 font-size:16px;
 font-weight:600;
-cursor:pointer;
-transition:.3s;
 text-decoration:none;
+transition:.3s;
 display:inline-block;
 }
 
 .btn-primary{
 background:#d4af37;
 color:white;
+box-shadow:0 10px 25px rgba(212,175,55,0.3);
 }
 
 .btn-primary:hover{
 background:#b89225;
-transform:translateY(-3px);
+transform:translateY(-4px);
 }
 
 .btn-secondary{
@@ -126,18 +203,19 @@ color:#0b3d2e;
 }
 
 .btn-secondary:hover{
-background:#f1f1f1;
-transform:translateY(-3px);
+background:#f3f3f3;
+transform:translateY(-4px);
 }
 
-/* SECTION STYLING */
+/* SECTION */
 
 section{
-padding:100px 20px;
+padding:110px 20px;
 }
 
 .section-title{
-font-size:42px;
+font-size:48px;
+font-weight:700;
 text-align:center;
 color:#0b3d2e;
 margin-bottom:15px;
@@ -145,9 +223,12 @@ margin-bottom:15px;
 
 .section-subtitle{
 text-align:center;
+max-width:700px;
+margin:auto;
+margin-bottom:65px;
 color:#666;
-margin-bottom:60px;
 font-size:18px;
+line-height:1.7;
 }
 
 /* SERVICES */
@@ -157,7 +238,7 @@ background:#f8f8f8;
 }
 
 .service-grid{
-max-width:1200px;
+max-width:1250px;
 margin:auto;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -166,10 +247,10 @@ gap:30px;
 
 .service-card{
 background:white;
-padding:35px;
-border-radius:18px;
-box-shadow:0 8px 25px rgba(0,0,0,0.08);
-transition:.3s;
+padding:40px 35px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.07);
+transition:.35s;
 border-top:5px solid #d4af37;
 }
 
@@ -178,72 +259,41 @@ transform:translateY(-10px);
 }
 
 .service-icon{
-font-size:40px;
+font-size:45px;
 margin-bottom:20px;
 }
 
 .service-card h3{
+font-size:24px;
 color:#0b3d2e;
 margin-bottom:15px;
-font-size:24px;
 }
 
 .service-card p{
-color:#555;
-}
-
-/* WHY CHOOSE US */
-
-.why-us{
-background:white;
-}
-
-.why-container{
-max-width:1200px;
-margin:auto;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
-
-.why-box{
-padding:35px;
-text-align:center;
-border-radius:18px;
-background:#fafafa;
-transition:.3s;
-}
-
-.why-box:hover{
-transform:translateY(-8px);
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
-}
-
-.why-box h3{
-margin:20px 0;
-color:#0b3d2e;
+color:#666;
+line-height:1.8;
 }
 
 /* GALLERY */
 
 .gallery{
-background:#f8f8f8;
+background:white;
 }
 
 .gallery-grid{
-max-width:1200px;
+max-width:1250px;
 margin:auto;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:25px;
 }
 
 .gallery-grid img{
 width:100%;
-height:320px;
+height:350px;
 object-fit:cover;
-border-radius:18px;
-box-shadow:0 10px 25px rgba(0,0,0,0.12);
+border-radius:20px;
+box-shadow:0 12px 25px rgba(0,0,0,0.12);
 transition:.4s;
 }
 
@@ -254,11 +304,11 @@ transform:scale(1.03);
 /* ABOUT */
 
 .about{
-background:white;
+background:#f8f8f8;
 }
 
 .about-container{
-max-width:1100px;
+max-width:1250px;
 margin:auto;
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -266,88 +316,96 @@ gap:60px;
 align-items:center;
 }
 
+.about-image img{
+width:100%;
+height:600px;
+object-fit:cover;
+border-radius:25px;
+box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
 .about-text h2{
-font-size:42px;
+font-size:48px;
 color:#0b3d2e;
-margin-bottom:20px;
+margin-bottom:25px;
 }
 
 .about-text p{
-margin-bottom:20px;
+font-size:18px;
+line-height:1.9;
 color:#555;
-font-size:17px;
-}
-
-.about-image img{
-width:100%;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.12);
+margin-bottom:22px;
 }
 
 /* REVIEWS */
 
 .reviews{
-background:#f8f8f8;
+background:white;
 }
 
 .review-grid{
 max-width:1200px;
 margin:auto;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:30px;
 }
 
 .review-card{
-background:white;
+background:#f8f8f8;
 padding:35px;
-border-radius:18px;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
-}
-
-.review-card h4{
-margin-top:20px;
-color:#0b3d2e;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.06);
 }
 
 .stars{
+font-size:22px;
 color:#d4af37;
-font-size:20px;
 margin-bottom:15px;
+}
+
+.review-card p{
+line-height:1.8;
+color:#555;
+margin-bottom:20px;
+}
+
+.review-card h4{
+color:#0b3d2e;
 }
 
 /* CONTACT */
 
 .contact{
-background:white;
+background:#0b3d2e;
+color:white;
 }
 
 .contact-container{
-max-width:1100px;
+max-width:1200px;
 margin:auto;
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:50px;
+gap:60px;
 align-items:center;
 }
 
 .contact-info h2{
-font-size:42px;
-color:#0b3d2e;
-margin-bottom:20px;
+font-size:48px;
+margin-bottom:25px;
 }
 
 .contact-info p{
-margin-bottom:18px;
-font-size:17px;
-color:#555;
+font-size:18px;
+line-height:1.9;
+margin-bottom:15px;
+color:#f2f2f2;
 }
 
 .contact-form{
-background:#f8f8f8;
-padding:40px;
-border-radius:18px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+background:white;
+padding:45px;
+border-radius:25px;
 }
 
 input,
@@ -365,13 +423,18 @@ textarea{
 resize:none;
 }
 
+button{
+border:none;
+cursor:pointer;
+}
+
 /* FOOTER */
 
 footer{
-background:#0b3d2e;
-color:white;
+background:#07251c;
+padding:35px 20px;
 text-align:center;
-padding:35px;
+color:white;
 }
 
 footer p{
@@ -380,23 +443,15 @@ margin:8px 0;
 
 /* MOBILE */
 
-@media(max-width:900px){
-
-header{
-padding:18px 25px;
-}
-
-.hero h1{
-font-size:48px;
-}
-
-.hero p{
-font-size:20px;
-}
+@media(max-width:1000px){
 
 .about-container,
 .contact-container{
 grid-template-columns:1fr;
+}
+
+.about-image img{
+height:450px;
 }
 
 }
@@ -404,32 +459,50 @@ grid-template-columns:1fr;
 @media(max-width:768px){
 
 header{
+padding:18px 25px;
 flex-direction:column;
 }
 
+.logo{
+margin-bottom:15px;
+}
+
 nav{
-margin-top:15px;
+flex-wrap:wrap;
+justify-content:center;
 }
 
 nav a{
-margin:0 10px;
+margin:10px;
 }
 
 .hero{
-height:auto;
-padding:180px 20px 120px;
+padding-top:220px;
 }
 
 .hero h1{
-font-size:38px;
+font-size:52px;
+}
+
+.hero p{
+font-size:18px;
 }
 
 .hero-buttons{
 flex-direction:column;
+align-items:center;
 }
 
 .section-title{
-font-size:34px;
+font-size:38px;
+}
+
+.gallery-grid img{
+height:260px;
+}
+
+.about-image img{
+height:320px;
 }
 
 }
@@ -439,9 +512,14 @@ font-size:34px;
 
 <body>
 
+<!-- HEADER -->
+
 <header>
 
-<img src="images/logo.png" alt="Optimal Vent & Chimney Logo">
+<div class="logo">
+<img src="images/logo.png" alt="Logo">
+<div class="logo-text">Optimal Vent & Chimney</div>
+</div>
 
 <nav>
 <a href="#home">Home</a>
@@ -460,11 +538,13 @@ font-size:34px;
 
 <div class="hero-content">
 
-<h1>Optimal Vent & Chimney</h1>
+<h1>
+Optimal Vent & Chimney
+</h1>
 
 <p>
-Professional Chimney & Dryer Vent Services Designed To Keep
-Your Home Safe, Clean, and Efficient.
+Professional chimney and dryer vent services designed to keep
+your home safer, cleaner, and operating efficiently year-round.
 </p>
 
 <div class="hero-buttons">
@@ -480,38 +560,39 @@ Your Home Safe, Clean, and Efficient.
 
 <section class="services" id="services">
 
-<h2 class="section-title">Our Services</h2>
+<h2 class="section-title">Professional Services</h2>
 
 <p class="section-subtitle">
-Reliable solutions for safer homes and better airflow.
+High-quality chimney and dryer vent solutions focused on safety,
+efficiency, and long-term performance.
 </p>
 
 <div class="service-grid">
 
 <div class="service-card">
-<div class="service-icon">🏠</div>
+<div class="service-icon">🔥</div>
 <h3>Chimney Cleaning</h3>
 <p>
-Complete soot and debris removal to improve fireplace safety
-and efficiency.
-</p>
-</div>
-
-<div class="service-card">
-<div class="service-icon">🔥</div>
-<h3>Chimney Repairs</h3>
-<p>
-Professional repair services for chimney leaks, cracks,
-and damaged masonry.
+Complete chimney sweeping and soot removal to improve fireplace
+performance and reduce fire hazards.
 </p>
 </div>
 
 <div class="service-card">
 <div class="service-icon">🛠️</div>
+<h3>Chimney Repairs</h3>
+<p>
+Professional repair services for leaks, cracks, damaged masonry,
+and structural chimney issues.
+</p>
+</div>
+
+<div class="service-card">
+<div class="service-icon">🏠</div>
 <h3>Chimney Cap Installation</h3>
 <p>
-Protect your chimney from rain, animals, and debris with
-durable chimney caps.
+Protect your chimney from moisture, debris, birds, and animals
+with durable chimney cap systems.
 </p>
 </div>
 
@@ -519,17 +600,17 @@ durable chimney caps.
 <div class="service-icon">🌀</div>
 <h3>Dryer Vent Cleaning</h3>
 <p>
-Reduce fire hazards and improve dryer efficiency by removing
-dangerous lint buildup.
+Remove dangerous lint buildup and improve dryer efficiency with
+professional vent cleaning services.
 </p>
 </div>
 
 <div class="service-card">
 <div class="service-icon">🔧</div>
-<h3>Dryer Vent Repairs</h3>
+<h3>Vent Repairs</h3>
 <p>
-Repair disconnected or damaged dryer vent systems for
-better airflow.
+Repair disconnected or damaged vent systems to restore proper
+airflow and improve safety.
 </p>
 </div>
 
@@ -537,48 +618,8 @@ better airflow.
 <div class="service-icon">✅</div>
 <h3>Safety Inspections</h3>
 <p>
-Detailed inspections to identify hidden problems before
-they become expensive repairs.
-</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- WHY CHOOSE US -->
-
-<section class="why-us">
-
-<h2 class="section-title">Why Choose Us</h2>
-
-<p class="section-subtitle">
-Trusted service backed by professionalism and quality workmanship.
-</p>
-
-<div class="why-container">
-
-<div class="why-box">
-<h3>Experienced Professionals</h3>
-<p>
-Our team delivers dependable chimney and vent solutions
-using proven methods and professional equipment.
-</p>
-</div>
-
-<div class="why-box">
-<h3>Affordable Pricing</h3>
-<p>
-We provide honest pricing and quality service without
-hidden costs or unnecessary upselling.
-</p>
-</div>
-
-<div class="why-box">
-<h3>Customer Satisfaction</h3>
-<p>
-We focus on reliable communication, quality results,
-and long-term customer trust.
+Detailed inspections to identify hidden issues before they become
+expensive repairs or safety risks.
 </p>
 </div>
 
@@ -590,10 +631,10 @@ and long-term customer trust.
 
 <section class="gallery" id="gallery">
 
-<h2 class="section-title">Recent Work</h2>
+<h2 class="section-title">Our Recent Work</h2>
 
 <p class="section-subtitle">
-Real projects completed for homeowners.
+Real projects completed for homeowners throughout the community.
 </p>
 
 <div class="gallery-grid">
@@ -613,32 +654,30 @@ Real projects completed for homeowners.
 
 <div class="about-container">
 
-<div class="about-text">
-
-<h2>About Optimal Vent & Chimney</h2>
-
-<p>
-Optimal Vent & Chimney specializes in professional chimney
-cleaning, dryer vent cleaning, repairs, inspections, and
-preventive maintenance services.
-</p>
-
-<p>
-Our mission is to help homeowners maintain safer, cleaner,
-and more efficient homes by delivering dependable service
-with attention to detail.
-</p>
-
-<p>
-We take pride in providing professional workmanship,
-honest communication, and customer-focused solutions
-for every project.
-</p>
-
-</div>
-
 <div class="about-image">
 <img src="images/IMG_7978.jpeg">
+</div>
+
+<div class="about-text">
+
+<h2>About Our Company</h2>
+
+<p>
+Optimal Vent & Chimney specializes in chimney cleaning,
+dryer vent cleaning, inspections, maintenance, and repair services
+for residential properties.
+</p>
+
+<p>
+Our mission is to help homeowners maintain safer homes through
+professional service, reliable workmanship, and honest communication.
+</p>
+
+<p>
+We are committed to delivering dependable results while improving
+airflow efficiency and reducing preventable fire hazards.
+</p>
+
 </div>
 
 </div>
@@ -652,7 +691,7 @@ for every project.
 <h2 class="section-title">Customer Reviews</h2>
 
 <p class="section-subtitle">
-What homeowners are saying about our work.
+Trusted by homeowners for reliable and professional service.
 </p>
 
 <div class="review-grid">
@@ -660,8 +699,8 @@ What homeowners are saying about our work.
 <div class="review-card">
 <div class="stars">★★★★★</div>
 <p>
-“Very professional and on time. They cleaned our dryer vent
-quickly and explained everything clearly.”
+“Very professional and efficient. They cleaned our dryer vent
+quickly and explained the entire process.”
 </p>
 <h4>- Sarah M.</h4>
 </div>
@@ -669,8 +708,8 @@ quickly and explained everything clearly.”
 <div class="review-card">
 <div class="stars">★★★★★</div>
 <p>
-“Excellent chimney repair service. Honest pricing and great
-communication throughout the entire process.”
+“Excellent work and fair pricing. Our chimney looks and works
+better than ever.”
 </p>
 <h4>- James T.</h4>
 </div>
@@ -678,8 +717,8 @@ communication throughout the entire process.”
 <div class="review-card">
 <div class="stars">★★★★★</div>
 <p>
-“Highly recommend Optimal Vent & Chimney. The team was
-friendly, efficient, and professional.”
+“Highly recommend Optimal Vent & Chimney. Great communication,
+professional service, and quality results.”
 </p>
 <h4>- David R.</h4>
 </div>
@@ -699,8 +738,8 @@ friendly, efficient, and professional.”
 <h2>Contact Us</h2>
 
 <p>
-Ready to schedule service or request an inspection?
-Contact us today for reliable chimney and vent solutions.
+Need chimney or dryer vent service?
+Contact us today to schedule an inspection or service appointment.
 </p>
 
 <p><strong>Email:</strong> Optimalvent&chimney@gmail.com</p>
@@ -709,7 +748,7 @@ Contact us today for reliable chimney and vent solutions.
 
 <p><strong>Phone:</strong> 940-297-9470</p>
 
-<p><strong>Hours:</strong> Monday - Saturday | 8AM - 6PM</p>
+<p><strong>Hours:</strong> Monday - Saturday | 8:00 AM - 6:00 PM</p>
 
 </div>
 
@@ -723,7 +762,7 @@ Contact us today for reliable chimney and vent solutions.
 
 <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
 
-<button class="btn btn-primary" type="submit">
+<button type="submit" class="btn btn-primary">
 Send Message
 </button>
 
@@ -741,9 +780,7 @@ Send Message
 
 <p>© 2026 Optimal Vent & Chimney</p>
 
-<p>
-Professional Chimney & Dryer Vent Services
-</p>
+<p>Professional Chimney & Dryer Vent Services</p>
 
 </footer>
 
