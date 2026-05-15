@@ -1,676 +1,580 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Optimal Vent & Chimney</title>
+<link rel="icon" type="image/png" href="assets/logo.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+:root{
+--navy:#2C334D;
+--green:#7B9634;
+--gold:#D4B252;
+--white:#ffffff;
+--light:#f7f7f5;
+--gray:#727272;
+}
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+}
+
+html{
 scroll-behavior:smooth;
 }
 
 body{
-font-family:'Poppins',sans-serif;
-background:#ffffff;
-color:#333;
+font-family:'Inter',sans-serif;
+background:var(--white);
+color:var(--navy);
 line-height:1.6;
 }
 
-/* HEADER */
-
-header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 70px;
-background:rgba(255,255,255,0.96);
-backdrop-filter:blur(10px);
-box-shadow:0 2px 15px rgba(0,0,0,0.08);
-z-index:1000;
-}
-
-header img{
-height:95px;
-}
-
-nav a{
-margin-left:35px;
-text-decoration:none;
-font-weight:600;
-color:#0b3d2e;
-transition:.3s;
-font-size:16px;
-}
-
-nav a:hover{
-color:#d4af37;
-}
-
-/* HERO */
-
-/* HERO */
-
-.hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
-url('images/IMG_0850.jpeg');
-background-size:contain;
-background-position:center center;
-background-repeat:no-repeat;
-background-color:#1a1a1a;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-}
-
-.hero-content{
-max-width:750px;
-}
-
-.hero h1{
-font-size:68px;
-color:white;
-margin-bottom:20px;
-font-weight:700;
-}
-
-.hero p{
-font-size:24px;
-color:#f2f2f2;
-margin-bottom:35px;
-}
-
-.hero-buttons{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.btn{
-padding:15px 35px;
-border:none;
-border-radius:8px;
-font-size:16px;
-font-weight:600;
-cursor:pointer;
-transition:.3s;
-text-decoration:none;
-display:inline-block;
-}
-
-.btn-primary{
-background:#d4af37;
-color:white;
-}
-
-.btn-primary:hover{
-background:#b89225;
-transform:translateY(-3px);
-}
-
-.btn-secondary{
-background:white;
-color:#0b3d2e;
-}
-
-.btn-secondary:hover{
-background:#f1f1f1;
-transform:translateY(-3px);
-}
-
-/* SECTION STYLING */
-
-section{
-padding:100px 20px;
-}
-
-.section-title{
-font-size:42px;
-text-align:center;
-color:#0b3d2e;
-margin-bottom:15px;
-}
-
-.section-subtitle{
-text-align:center;
-color:#666;
-margin-bottom:60px;
-font-size:18px;
-}
-
-/* SERVICES */
-
-.services{
-background:#f8f8f8;
-}
-
-.service-grid{
-max-width:1200px;
+.container{
+width:min(1200px,92%);
 margin:auto;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
-
-.service-card{
-background:white;
-padding:35px;
-border-radius:18px;
-box-shadow:0 8px 25px rgba(0,0,0,0.08);
-transition:.3s;
-border-top:5px solid #d4af37;
-}
-
-.service-card:hover{
-transform:translateY(-10px);
-}
-
-.service-icon{
-font-size:40px;
-margin-bottom:20px;
-}
-
-.service-card h3{
-color:#0b3d2e;
-margin-bottom:15px;
-font-size:24px;
-}
-
-.service-card p{
-color:#555;
-}
-
-/* WHY CHOOSE US */
-
-.why-us{
-background:white;
-}
-
-.why-container{
-max-width:1200px;
-margin:auto;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
-
-.why-box{
-padding:35px;
-text-align:center;
-border-radius:18px;
-background:#fafafa;
-transition:.3s;
-}
-
-.why-box:hover{
-transform:translateY(-8px);
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
-}
-
-.why-box h3{
-margin:20px 0;
-color:#0b3d2e;
-}
-
-/* GALLERY */
-
-.gallery{
-background:#f8f8f8;
-}
-
-.gallery-grid{
-max-width:1200px;
-margin:auto;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-}
-
-.gallery-grid img{
-width:100%;
-height:320px;
-object-fit:cover;
-border-radius:18px;
-box-shadow:0 10px 25px rgba(0,0,0,0.12);
-transition:.4s;
-}
-
-.gallery-grid img:hover{
-transform:scale(1.03);
-}
-
-/* ABOUT */
-
-.about{
-background:white;
-}
-
-.about-container{
-max-width:1100px;
-margin:auto;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-align-items:center;
-}
-
-.about-text h2{
-font-size:42px;
-color:#0b3d2e;
-margin-bottom:20px;
-}
-
-.about-text p{
-margin-bottom:20px;
-color:#555;
-font-size:17px;
-}
-
-.about-image img{
-width:100%;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.12);
-}
-
-
-
-/* CONTACT */
-
-.contact{
-background:white;
-}
-
-.contact-container{
-max-width:1100px;
-margin:auto;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:50px;
-align-items:center;
-}
-
-.contact-info h2{
-font-size:42px;
-color:#0b3d2e;
-margin-bottom:20px;
-}
-
-.contact-info p{
-margin-bottom:18px;
-font-size:17px;
-color:#555;
-}
-
-.contact-form{
-background:#f8f8f8;
-padding:40px;
-border-radius:18px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
-
-input,
-textarea{
-width:100%;
-padding:16px;
-margin-bottom:20px;
-border:1px solid #ddd;
-border-radius:10px;
-font-size:16px;
-font-family:'Poppins',sans-serif;
-}
-
-textarea{
-resize:none;
-}
-
-/* FOOTER */
-
-footer{
-background:#0b3d2e;
-color:white;
-text-align:center;
-padding:35px;
-}
-
-footer p{
-margin:8px 0;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-header{
-padding:18px 25px;
-}
-
-.hero h1{
-font-size:48px;
-}
-
-.hero p{
-font-size:20px;
-}
-
-.about-container,
-.contact-container{
-grid-template-columns:1fr;
-}
-
-}
-
-@media(max-width:768px){
-
-header{
-flex-direction:column;
 }
 
 nav{
-margin-top:15px;
+position:fixed;
+top:0;
+left:0;
+right:0;
+z-index:1000;
+background:rgba(255,255,255,.88);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(0,0,0,.05);
 }
 
-nav a{
-margin:0 10px;
+.nav-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 0;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:14px;
+font-weight:700;
+font-size:1rem;
+}
+
+.logo img{
+width:64px;
+height:64px;
+object-fit:contain;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+align-items:center;
+}
+
+.nav-links a{
+text-decoration:none;
+color:var(--navy);
+font-weight:500;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:var(--green);
+}
+
+.btn{
+padding:14px 24px;
+border-radius:999px;
+text-decoration:none;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+font-weight:600;
+transition:.3s;
+}
+
+.btn-primary{
+background:var(--navy);
+color:var(--white);
+}
+
+.btn-primary:hover{
+transform:translateY(-2px);
+background:#20263a;
+}
+
+.btn-secondary{
+border:1px solid rgba(255,255,255,.3);
+color:white;
 }
 
 .hero{
-height:auto;
-padding:180px 20px 120px;
+padding:170px 0 120px;
+background:
+linear-gradient(135deg, rgba(44,51,77,.96), rgba(32,38,58,.98));
+color:white;
+overflow:hidden;
+position:relative;
+}
+
+.hero::after{
+content:'';
+position:absolute;
+width:700px;
+height:700px;
+background:radial-gradient(circle, rgba(212,178,82,.16), transparent 70%);
+top:-250px;
+right:-150px;
+}
+
+.hero-grid{
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:70px;
+align-items:center;
+position:relative;
+z-index:2;
 }
 
 .hero h1{
-font-size:38px;
+font-size:clamp(3rem,6vw,5.5rem);
+line-height:1.02;
+margin-bottom:28px;
+font-weight:800;
+letter-spacing:-2px;
+}
+
+.hero p{
+font-size:1.2rem;
+color:rgba(255,255,255,.8);
+max-width:640px;
+margin-bottom:40px;
 }
 
 .hero-buttons{
-flex-direction:column;
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+}
+
+.hero-card{
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.08);
+padding:40px;
+border-radius:28px;
+backdrop-filter:blur(12px);
+}
+
+.hero-card img{
+width:100%;
+max-width:360px;
+display:block;
+margin:auto;
+}
+
+.section{
+padding:110px 0;
 }
 
 .section-title{
-font-size:34px;
+font-size:clamp(2rem,4vw,3.4rem);
+line-height:1.1;
+margin-bottom:20px;
+letter-spacing:-1px;
+}
+
+.section-sub{
+max-width:700px;
+color:var(--gray);
+font-size:1.08rem;
+margin-bottom:60px;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:24px;
+}
+
+.card{
+background:white;
+border:1px solid rgba(0,0,0,.06);
+padding:34px;
+border-radius:28px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 20px 50px rgba(0,0,0,.08);
+}
+
+.card h3{
+margin:18px 0 14px;
+font-size:1.3rem;
+}
+
+.icon{
+width:56px;
+height:56px;
+border-radius:18px;
+background:rgba(123,150,52,.12);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:1.4rem;
+color:var(--green);
+}
+
+.dark-section{
+background:var(--light);
+}
+
+.why-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:24px;
+}
+
+.why-item{
+padding:28px;
+background:white;
+border-radius:24px;
+border:1px solid rgba(0,0,0,.05);
+}
+
+.process{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:30px;
+}
+
+.step{
+position:relative;
+padding:36px;
+border-radius:28px;
+background:linear-gradient(180deg,#ffffff,#fafafa);
+border:1px solid rgba(0,0,0,.06);
+}
+
+.step-number{
+font-size:3rem;
+font-weight:800;
+color:rgba(44,51,77,.1);
+margin-bottom:12px;
+}
+
+.cta{
+padding:120px 0;
+background:var(--navy);
+color:white;
+text-align:center;
+}
+
+.cta h2{
+font-size:clamp(2.2rem,5vw,4rem);
+margin-bottom:24px;
+line-height:1.05;
+}
+
+.cta p{
+max-width:700px;
+margin:0 auto 40px;
+color:rgba(255,255,255,.78);
+font-size:1.1rem;
+}
+
+footer{
+padding:50px 0;
+background:#20263a;
+color:white;
+}
+
+.footer-grid{
+display:flex;
+justify-content:space-between;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.small{
+color:rgba(255,255,255,.7);
+font-size:.95rem;
+margin-top:10px;
+}
+
+.gold-line{
+width:90px;
+height:3px;
+background:var(--gold);
+border-radius:999px;
+margin-bottom:28px;
+}
+
+@media(max-width:900px){
+
+.hero-grid{
+grid-template-columns:1fr;
+}
+
+.nav-links{
+display:none;
+}
+
+.hero{
+padding-top:140px;
+}
+
+.hero h1{
+font-size:3.4rem;
+}
+
+.hero-card{
+padding:24px;
 }
 
 }
-
 </style>
 </head>
-
 <body>
 
-<header>
-
-<img src="images/logo.png" alt="Optimal Vent & Chimney Logo">
-
 <nav>
-<a href="#home">Home</a>
+<div class="container nav-inner">
+
+<div class="logo">
+<img src="assets/logo.png" alt="Optimal Vent & Chimney">
+<span>Optimal Vent & Chimney</span>
+</div>
+
+<div class="nav-links">
 <a href="#services">Services</a>
-<a href="#gallery">Gallery</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
+<a href="#why">Why Us</a>
+<a href="#process">Process</a>
+<a href="#contact" class="btn btn-primary">Get Quote</a>
+</div>
+
+</div>
 </nav>
 
-</header>
+<section class="hero">
+<div class="container hero-grid">
 
-<!-- HERO -->
+<div>
+<div class="gold-line"></div>
 
-<section class="hero" id="home">
-
-<div class="hero-content">
-
-<h1>Optimal Vent & Chimney</h1>
+<h1>
+Commercial Vent & Chimney Services
+Built For Property Management
+</h1>
 
 <p>
-Professional Chimney & Dryer Vent Services Designed To Keep
-Your Properties Safe, Clean, and Efficient.
+Professional dryer vent cleaning, chimney sweeps, vent cover replacements,
+and commercial maintenance solutions for multi-family properties,
+HOAs, apartment communities, and general contractors.
 </p>
 
 <div class="hero-buttons">
-<a href="#contact" class="btn btn-primary">Request Service</a>
-<a href="#services" class="btn btn-secondary">View Services</a>
+<a href="#contact" class="btn btn-primary">Request Commercial Quote</a>
+<a href="#services" class="btn btn-secondary">Explore Services</a>
+</div>
+</div>
+
+<div class="hero-card">
+<img src="assets/logo.png" alt="Optimal Vent & Chimney Logo">
 </div>
 
 </div>
-
 </section>
 
-<!-- SERVICES -->
+<section class="section" id="services">
+<div class="container">
 
-<section class="services" id="services">
+<h2 class="section-title">
+Commercial Services Designed For Scale
+</h2>
 
-<h2 class="section-title">Our Services</h2>
-
-<p class="section-subtitle">
-Reliable solutions for safer homes and better airflow.
+<p class="section-sub">
+A modern service partner for property management companies,
+multi-family operators, and commercial facilities requiring
+reliable vent and chimney maintenance.
 </p>
 
-<div class="service-grid">
+<div class="services">
 
-<div class="service-card">
-<div class="service-icon">🏠</div>
-<h3>Chimney Cleaning</h3>
-<p>
-Complete soot and debris removal to improve fireplace safety
-and efficiency.
-</p>
-</div>
-
-<div class="service-card">
-<div class="service-icon">🔥</div>
-<h3>Chimney Repairs</h3>
-<p>
-Professional repair services for chimney leaks, cracks,
-and damaged masonry.
-</p>
-</div>
-
-<div class="service-card">
-<div class="service-icon">🛠️</div>
-<h3>Chimney Cap Installation</h3>
-<p>
-Protect your chimney from rain, animals, and debris with
-durable chimney caps.
-</p>
-</div>
-
-<div class="service-card">
-<div class="service-icon">🌀</div>
+<div class="card">
+<div class="icon">✓</div>
 <h3>Dryer Vent Cleaning</h3>
 <p>
-Reduce fire hazards and improve dryer efficiency by removing
-dangerous lint buildup.
+Professional cleaning for apartment complexes, commercial buildings,
+and multi-unit residential properties to improve airflow and reduce fire risk.
 </p>
 </div>
 
-<div class="service-card">
-<div class="service-icon">🔧</div>
-<h3>Dryer Vent Repairs</h3>
+<div class="card">
+<div class="icon">✓</div>
+<h3>Vent Cover Replacement</h3>
 <p>
-Repair disconnected or damaged dryer vent systems for
-better airflow.
+Code-compliant vent cover upgrades and replacements designed
+for durability, efficiency, and clean exterior aesthetics.
 </p>
 </div>
 
-<div class="service-card">
-<div class="service-icon">✅</div>
-<h3>Safety Inspections</h3>
+<div class="card">
+<div class="icon">✓</div>
+<h3>Chimney Sweeps</h3>
 <p>
-Detailed inspections to identify hidden problems before
-they become expensive repairs.
+Routine chimney cleaning and inspection services helping maintain
+safe operation across residential and commercial systems.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">✓</div>
+<h3>Chimney Cap Replacement</h3>
+<p>
+Protective cap installation and replacement services to help prevent
+water intrusion, blockages, and weather-related damage.
 </p>
 </div>
 
 </div>
 
+</div>
 </section>
 
-<!-- WHY CHOOSE US -->
+<section class="section dark-section" id="why">
+<div class="container">
 
-<section class="why-us">
+<h2 class="section-title">
+Why Property Managers Choose Optimal
+</h2>
 
-<h2 class="section-title">Why Choose Us</h2>
-
-<p class="section-subtitle">
-Trusted service backed by professionalism and quality workmanship.
+<p class="section-sub">
+Built with a commercial-first mindset focused on professionalism,
+speed, reporting, and long-term maintenance partnerships.
 </p>
 
-<div class="why-container">
+<div class="why-grid">
 
-<div class="why-box">
-<h3>Experienced Professionals</h3>
-<p>
-Our team delivers dependable chimney and vent solutions
-using proven methods and professional equipment.
-</p>
+<div class="why-item">
+<h3>Commercial Focused</h3>
+<p>Structured specifically for property management groups, HOAs, and large-scale maintenance operations.</p>
 </div>
 
-<div class="why-box">
-<h3>Affordable Pricing</h3>
-<p>
-We provide honest pricing and quality service without
-hidden costs or unnecessary upselling.
-</p>
+<div class="why-item">
+<h3>Fast Scheduling</h3>
+<p>Responsive scheduling and organized service coordination for multi-property projects.</p>
 </div>
 
-<div class="why-box">
-<h3>Customer Satisfaction</h3>
-<p>
-We focus on reliable communication, quality results,
-and long-term customer trust.
-</p>
+<div class="why-item">
+<h3>Professional Reporting</h3>
+<p>Clear documentation and maintenance visibility for managers and ownership groups.</p>
+</div>
+
+<div class="why-item">
+<h3>Multi-Property Capable</h3>
+<p>Efficient systems built to support recurring maintenance across multiple locations.</p>
 </div>
 
 </div>
 
+</div>
 </section>
 
-<!-- GALLERY -->
+<section class="section" id="process">
+<div class="container">
 
-<section class="gallery" id="gallery">
+<h2 class="section-title">
+Simple Process. Professional Execution.
+</h2>
 
-<h2 class="section-title">Recent Work</h2>
-
-<p class="section-subtitle">
-Real projects completed for homeowners.
+<p class="section-sub">
+A streamlined workflow designed for busy commercial operations
+and long-term maintenance efficiency.
 </p>
 
-<div class="gallery-grid">
+<div class="process">
 
-<img src="images/IMG_8257.jpeg">
-<img src="images/IMG_7978.jpeg">
-<img src="images/IMG_0850.jpeg">
-<img src="images/IMG_7952.jpeg">
+<div class="step">
+<div class="step-number">01</div>
+<h3>Inspection</h3>
+<p>
+We assess systems, identify maintenance needs,
+and prepare a clear service scope.
+</p>
+</div>
+
+<div class="step">
+<div class="step-number">02</div>
+<h3>Service & Maintenance</h3>
+<p>
+Our team performs cleaning, replacement,
+and maintenance work efficiently and professionally.
+</p>
+</div>
+
+<div class="step">
+<div class="step-number">03</div>
+<h3>Reporting & Follow-Up</h3>
+<p>
+Receive documentation, recommendations,
+and ongoing maintenance planning support.
+</p>
+</div>
 
 </div>
 
+</div>
 </section>
 
-<!-- ABOUT -->
+<section class="cta" id="contact">
+<div class="container">
 
-<section class="about" id="about">
-
-<div class="about-container">
-
-<div class="about-text">
-
-<h2>About Optimal Vent & Chimney</h2>
+<h2>
+Keep Your Properties Safe, Clean & Code-Compliant
+</h2>
 
 <p>
-At Optimal Vent & Chimney, we specialize in professional chimney and dryer vent services focused primarily on business-to-business partnerships. We work with multifamily properties, apartment communities, Airbnb property managers, contractors, real estate investors, and project managers to provide dependable vent cleaning, inspections, maintenance, and repair services.
+Partner with a modern commercial vent and chimney service company
+built for property managers, HOAs, and multi-family operations.
 </p>
 
- Our goal is to help property owners keep their buildings safe, efficient, and well-maintained through reliable scheduling, professional communication, and quality workmanship. While our primary focus is commercial partnerships, we also provide select residential services when needed.
-<p>
-
- Optimal Vent & Chimney is committed to delivering professional results and becoming a trusted long-term service partner for your properties.
-
-
-</p>
+<a href="mailto:info@optimalventchimney.com" class="btn btn-primary">
+Request A Quote
+</a>
 
 </div>
-
-<div class="about-image">
-<img src="images/IMG_7978.jpeg">
-</div>
-
-</div>
-
 </section>
-
-
-
-<!-- CONTACT -->
-
-<section class="contact" id="contact">
-
-<div class="contact-container">
-
-<div class="contact-info">
-
-<h2>Contact Us</h2>
-
-<p>
-Ready to schedule service or request an inspection?
-Contact us today for reliable chimney and vent solutions.
-</p>
-
-<p><strong>Email:</strong> Optimalvent&chimney@gmail.com</p>
-
-<p><strong>Phone:</strong> 214-436-2504</p>
-
-<p><strong>Phone:</strong> 940-297-9470</p>
-
-<p><strong>Hours:</strong> Monday - Saturday | 8AM - 6PM</p>
-
-</div>
-
-<div class="contact-form">
-
-<form action="https://formspree.io/f/xaqapqje" method="POST">
-
-<input type="text" name="name" placeholder="Your Name" required>
-
-<input type="email" name="email" placeholder="Your Email" required>
-
-<textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-
-<button class="btn btn-primary" type="submit">
-Send Message
-</button>
-
-</form>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- FOOTER -->
 
 <footer>
+<div class="container footer-grid">
 
-<p>© 2026 Optimal Vent & Chimney</p>
+<div>
+<h3>Optimal Vent & Chimney</h3>
+<div class="small">
+Commercial Dryer Vent Cleaning • Chimney Sweeps • Vent Maintenance
+</div>
+</div>
 
-<p>
-Professional Chimney & Dryer Vent Services
-</p>
+<div>
+<div class="small">
+Serving Commercial & Multi-Family Properties
+</div>
+<div class="small">
+Fully Insured • Professional Service
+</div>
+</div>
 
+</div>
 </footer>
 
 </body>
